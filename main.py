@@ -53,6 +53,8 @@ class ReadAtRate(DobotApiDashMove):
 
 def main():
     """
+    CR20a:
+
     | Rate | Seconds to assertion error | Messages read until error |
     | ---- | -------------------------- | ------------------------- |
     | 1    | 80                         | 80                        |
@@ -60,6 +62,14 @@ def main():
     | 50   | 2.6                        | 131                       |
     | 110  | 7.8                        | 864                       |
     | 120  | 70-90                      | 9000-10000                |
+
+
+    CR10a:
+
+    | Rate | Seconds to assertion error | Messages read until error |
+    | ---- | -------------------------- | ------------------------- |
+    | 50   | 130                        | 6526                      |
+    | 115  | 696                        | 80060                     |
     """
 
     dashboard = ReadAtRate('192.168.2.3', rate=1)
