@@ -74,7 +74,7 @@ def main():
     | N/A  | > 66 hours                 | > 30 000 000              |
     """
 
-    dashboard = ReadAtRate('192.168.2.3', rate=123)
+    dashboard = ReadAtRate('192.168.2.3', rate=50)
 
     while not dashboard.is_dead:
         pass
