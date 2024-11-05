@@ -42,7 +42,7 @@ class ReadAtRate(DobotApiDashMove):
 
                 # Sleep to maintain rate
                 time.sleep(max(start_time + total_read * time_per_read - time.perf_counter(), 0))
-                if total_read % 10 == 0:
+                if total_read % 100 == 0:
                     print(f'Read: {total_read}')
         except Exception as e:
             print(f"Exception raised after {total_read} messages after {time.perf_counter() - start_time} seconds")
@@ -70,9 +70,11 @@ def main():
     | ---- | -------------------------- | ------------------------- |
     | 50   | 130                        | 6526                      |
     | 115  | 696                        | 80060                     |
+    | 124  | > 21 hours                 | > 9 000 000               |
+    | N/A  | > 66 hours                 | > 30 000 000              |
     """
 
-    dashboard = ReadAtRate('192.168.2.3', rate=1)
+    dashboard = ReadAtRate('192.168.2.3', rate=123)
 
     while not dashboard.is_dead:
         pass
